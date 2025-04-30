@@ -13,4 +13,5 @@ My typing speed is trash and instead of working on that I wrote a typing speed t
 # Start the typing tester
 Invoke-PwshTyper
 ```
-https://github.com/user-attachments/assets/bcd0c6ee-761a-4649-a14c-68a53a08afed
+
+https://github.com/user-attachments/assets/485e3270-5a32-4bca-90e9-8ce4928ea6cd

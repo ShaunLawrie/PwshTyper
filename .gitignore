@@ -1,0 +1,38 @@
+src/packages
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# Exclude packages folder
+PwshSpectreConsole/packages
+PwshSpectreConsole.Tests/packages
+
+# Exclude working folder
+Working/
+
+# dotnet build files
+bin/
+obj/
+*.sln
+
+# Random stuff
+settings.json
+results.json

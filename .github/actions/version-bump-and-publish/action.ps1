@@ -61,12 +61,19 @@ foreach ($function in $functions) {
 # Get the next version
 $newVersion = Get-NextVersion -Type $Type -ModuleName $ModuleName
 
+# Get dependencies and install them if needed
+$manifest = Import-LocalizedData -BaseDirectory $ThisModulePath -FileName "$ModuleName.psd1"
+$manifest.RequiredModules.GetEnumerator() | ForEach-Object {
+    Write-Host "Installing module dependency $($_)"
+    Install-Module -Name $_ -Scope CurrentUser -Force
+}
+
 # Bump the version in the module manifest
 if ($WhatIfPreference) {
     Write-Host "WhatIf: Would have bumped version to $newVersion"
 } else {
     Write-Host "Bumping version to $newVersion"
-    Update-ModuleManifest -Path "$RepositoryRoot\$ModuleName\$ModuleName.psd1" -ModuleVersion ([version]$newVersion)
+    Update-ModuleManifest -Path "$ThisModulePath\$ModuleName.psd1" -ModuleVersion ([version]$newVersion)
     git config --global user.name 'Shaun Lawrie (via GitHub Actions)'
     git config --global user.email 'shaun.r.lawrie@gmail.com'
     git add (Join-Path $RepositoryRoot "$ModuleName" "$ModuleName.psd1")

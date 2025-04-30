@@ -21,10 +21,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# Exclude packages folder
-PwshSpectreConsole/packages
-PwshSpectreConsole.Tests/packages
-
 # Exclude working folder
 Working/
 

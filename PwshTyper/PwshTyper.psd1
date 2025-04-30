@@ -27,7 +27,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) Shaun Lawrie. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'A PowerShell module typing tool to help you improve your typing speed and accuracy.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''

@@ -59,7 +59,7 @@ foreach ($function in $functions) {
 }
 
 # Get the next version
-$newVersion = Get-NextVersion -Type $Type
+$newVersion = Get-NextVersion -Type $Type -ModuleName $ModuleName
 
 # Bump the version in the module manifest
 if ($WhatIfPreference) {

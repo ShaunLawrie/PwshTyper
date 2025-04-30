@@ -7,7 +7,16 @@ function Get-LatestGalleryVersion {
         [string]$Type
     )
 
-    $onlineVersions = Find-Module -Name $ModuleName -AllowPrerelease -AllVersions
+    try {
+        $onlineVersions = Find-Module -Name $ModuleName -AllowPrerelease -AllVersions
+    } catch {
+        if ($_.Exception.Message -like "*No match was found*") {
+            Write-Host "Module $ModuleName not found in the gallery"
+            return $null
+        } else {
+            throw
+        }
+    }
 
     Write-Host "Found $($($onlineVersions.Count)) versions of $ModuleName in the gallery"
 

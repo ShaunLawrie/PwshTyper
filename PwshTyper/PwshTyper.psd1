@@ -14,9 +14,6 @@ RootModule = 'PwshTyper.psm1'
 # Version number of this module.
 ModuleVersion = '1.0.0'
 
-# Supported PSEditions
-CompatiblePSEditions = 'Core'
-
 # ID used to uniquely identify this module
 GUID = '46cd4fa2-18ed-4f66-b514-9a90161a54f5'
 

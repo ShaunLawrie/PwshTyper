@@ -1,4 +1,4 @@
-# A Quick and Dirty PowerShell Typing Speed Tester
+# ⌨️ A Quick and Dirty PowerShell Typing Speed Tester
 
 My typing speed is trash and instead of working on that I wrote a typing speed tester in PowerShell.
 

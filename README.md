@@ -15,3 +15,11 @@ Invoke-PwshTyper
 ```
 
 https://github.com/user-attachments/assets/485e3270-5a32-4bca-90e9-8ce4928ea6cd
+
+To add wordlists:
+
+```pwsh
+$installLocation = Split-Path (Get-Module PwshTyper).Path -Parent
+Write-Host "Add newline-separated files to the wordlists directory in $installLocation"
+explorer $installLocation
+```

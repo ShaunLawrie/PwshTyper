@@ -39,7 +39,8 @@ function Get-LatestGalleryVersion {
     }
 
     if ($null -eq $version) {
-        throw "No version found for type $Type"
+        Write-Host "No version found for type $Type"
+        return $null
     }
 
     Write-Host "Latest $Type version: $version"

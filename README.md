@@ -1,4 +1,4 @@
-# A Quick and Dirty PowerShell Typing Speed Tester
+# ⌨️ A Quick and Dirty PowerShell Typing Speed Tester
 
 My typing speed is trash and instead of working on that I wrote a typing speed tester in PowerShell.
 
@@ -13,3 +13,4 @@ My typing speed is trash and instead of working on that I wrote a typing speed t
 # Start the typing tester
 Invoke-PwshTyper
 ```
+https://github.com/user-attachments/assets/bcd0c6ee-761a-4649-a14c-68a53a08afed

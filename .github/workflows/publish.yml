@@ -1,0 +1,57 @@
+name: Publish to PSGallery
+on:
+  push:
+    branches:
+      - main
+      - prerelease
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - prerelease
+
+permissions:
+  contents: write
+
+jobs:
+  publish-to-psgallery:
+    name: Publish
+    environment: prod
+    env:
+      PSGALLERY_API_KEY: ${{ secrets.PSGALLERY_API_KEY }}
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.repository_owner == 'ShaunLawrie'
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PIPELINE_PAT }}
+      - name: Version Bump and Publish
+        uses: ./.github/actions/version-bump-and-publish
+        with:
+          module-name: PwshTyper
+          psgallery-api-key: ${{ secrets.PSGALLERY_API_KEY }}
+          github-token: ${{ secrets.PIPELINE_PAT }}
+          publish-type: stable
+
+  publish-prerelease-to-psgallery:
+    name: Publish Prerelease
+    environment: prod
+    env:
+      PSGALLERY_API_KEY: ${{ secrets.PSGALLERY_API_KEY }}
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/prerelease' && github.repository_owner == 'ShaunLawrie'
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PIPELINE_PAT }}
+      - name: Version Bump and Publish
+        id: version-bump-and-publish
+        uses: ./.github/actions/version-bump-and-publish
+        with:
+          module-name: PwshTyper
+          psgallery-api-key: ${{ secrets.PSGALLERY_API_KEY }}
+          github-token: ${{ secrets.PIPELINE_PAT }}
+          publish-type: prerelease

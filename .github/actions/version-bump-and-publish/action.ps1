@@ -38,7 +38,11 @@ $env:PSModulePath = @($env:PSModulePath, $ThisModulePath) -join $separator
 if ($WhatIfPreference) {
     Write-Host "WhatIf: Would have run tests"
 } else {
-    Invoke-Pester -Path $RepositoryRoot -CI -ExcludeTag "ExcludeCI"
+    if (Test-Path "$RepositoryRoot\$ModuleName.Tests") {
+        Invoke-Pester -Path $RepositoryRoot -CI -ExcludeTag "ExcludeCI"
+    } else {
+        Write-Host "Test project not found at $RepositoryRoot\$ModuleName.Tests, skipping tests"
+    }
 }
 
 # If last commit was the version bump, skip it

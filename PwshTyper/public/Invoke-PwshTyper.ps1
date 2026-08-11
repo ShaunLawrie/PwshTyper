@@ -105,7 +105,7 @@ function Invoke-PwshTyper {
       "Ring" { Get-RingFingerOnlySentence }
       "Middle" { Get-MiddleFingerOnlySentence }
       "Index" { Get-IndexFingerOnlySentence }
-      default { Get-RandomWordlist -Path "$PSScriptRoot/../wordlists/$Mode.txt" -Punctuation $Punctuation -TitleCase $TitleCase -AllowedKeys $allowedKeys }
+      default { Get-RandomWordlist -Path "$PSScriptRoot/../wordlists/$($Mode.ToLower()).txt" -Punctuation $Punctuation -TitleCase $TitleCase -AllowedKeys $allowedKeys }
     }
 
     while ($true) {
